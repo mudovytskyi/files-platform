@@ -179,9 +179,8 @@ import { KafkaService } from './kafka';
 import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import { Client } from 'minio';
 import { inferRouterInputs, inferRouterOutputs, initTRPC } from '@trpc/server';
-import { z } from 'zod';
 import Fastify, { FastifyInstance, FastifyRequest } from 'fastify';
-import { FileSchema, UploadFileSchema } from '@file-platform/shared-lib';
+import { DeleteFileSchema, FileSchema, UploadFileSchema } from '@file-platform/shared-lib';
 import { PrismaClient } from '@prisma/client';
 
 const prisma = new PrismaClient({
@@ -263,7 +262,8 @@ const appRouter = t.router({
     return files.map((file) => FileSchema.parse(file));
   }),
 
-  deleteFile: t.procedure.input(z.string()).mutation(async ({ input: id }) => {
+  deleteFile: t.procedure.input(DeleteFileSchema).mutation(async ({ input }) => {
+    const { id } = input;
     const file = await prisma.file.findUnique({ where: { id } });
     if (!file) throw new Error('File not found');
 

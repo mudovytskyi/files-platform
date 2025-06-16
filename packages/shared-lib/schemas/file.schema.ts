@@ -13,5 +13,10 @@ export const UploadFileSchema = z.object({
   file: z.string(),
 });
 
+export const DeleteFileSchema = z.object({
+  id: z.string(),
+});
+
 export type FilePlatform = z.infer<typeof FileSchema>;
 export type UploadFilePlatform = z.infer<typeof UploadFileSchema>;
+export type DeleteFilePlatform = z.infer<typeof DeleteFileSchema>;
