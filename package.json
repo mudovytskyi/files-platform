@@ -1,0 +1,44 @@
+{
+	"name": "file-platform",
+	"version": "0.1.0",
+	"description": "Платформа для роботи з файлами",
+	"private": true,
+	"workspaces": [
+		"apps/*",
+		"packages/*"
+	],
+	"scripts": {
+		"build": "turbo run build",
+		"dev": "turbo run dev",
+		"lint": "turbo run lint",
+		"format": "turbo run format",
+		"prepare": "husky",
+		"clean": "pnpm -r exec rm -rf node_modules dist .turbo && rm -rf node_modules",
+		"test": "turbo run test",
+		"version-packages": "changeset version",
+		"release": "pnpm build && changeset publish",
+		"reset-hard": "git clean -dfx && git reset --hard && pnpm install"
+	},
+	"keywords": [
+		"file-storage",
+		"minio",
+		"kafka",
+		"fastify",
+		"react"
+	],
+	"author": "",
+	"license": "ISC",
+	"packageManager": "pnpm@10.12.1",
+	"devDependencies": {
+		"@changesets/cli": "^2.27.1",
+		"turbo": "^2.5.4",
+		"eslint": "^9.25.0",
+		"prettier": "^3.2.5",
+		"typescript": "^5.8.3",
+		"husky": "^9.0.11",
+		"lint-staged": "^15.2.1"
+	},
+	"engines": {
+		"node": ">=22.0.0"
+	}
+}

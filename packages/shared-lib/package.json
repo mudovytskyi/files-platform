@@ -1,0 +1,23 @@
+{
+	"name": "@file-platform/shared-lib",
+	"version": "1.0.0",
+	"main": "./dist/index.js",
+	"types": "./dist/index.d.ts",
+	"scripts": {
+		"build": "tsc",
+		"dev": "tsc -w",
+		"lint": "eslint . --ext .ts,.tsx",
+		"format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+	},
+	"dependencies": {
+		"zod": "^3.25.64"
+	},
+	"devDependencies": {
+		"typescript": "^5.8.3",
+		"@file-platform/eslint-config": "workspace:*"
+	},
+	"packageManager": "pnpm@10.12.1",
+	"engines": {
+		"node": ">=18.0.0"
+	}
+}

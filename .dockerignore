@@ -1,0 +1,39 @@
+# Системні файли
+.git
+.github
+.vscode
+.idea
+.DS_Store
+
+# Залежності
+node_modules
+.pnpm-store/
+npm-debug.log*
+pnpm-debug.log*
+
+# Тестування та звіти
+coverage
+.nyc_output
+
+# Тимчасові файли
+.turbo
+.next
+out
+dist
+build
+tmp
+temp
+
+# Локальні файли конфігурації
+.env
+.env.*
+!.env.example
+
+# Docker файли
+Dockerfile*
+docker-compose*
+
+# Документація та проектні файли
+README.md
+LICENSE
+CHANGELOG.md
