@@ -1,10 +1,10 @@
-import { Kafka, Producer } from 'kafkajs'
-import {FilePlatform} from '@file-platform/shared-lib'
+import { Kafka, Producer } from 'kafkajs';
+import { FilePlatform } from '@file-platform/shared-lib';
 
 const kafka = new Kafka({
   clientId: 'file-platform',
   brokers: [process.env.KAFKA_BROKER || 'localhost:9092'],
-})
+});
 
 export class KafkaService {
   private producer: Producer;
@@ -42,8 +42,8 @@ export class KafkaService {
             value: JSON.stringify({
               eventType: 'file_uploaded',
               data: file,
-              timestamp: new Date().toISOString()
-            })
+              timestamp: new Date().toISOString(),
+            }),
           },
         ],
       });
