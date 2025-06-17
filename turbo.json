@@ -29,7 +29,7 @@
 				"src/**/*.{ts,tsx,js,jsx}",
 				"eslint.config.js",
 				"../../eslint.config.js",
-				"../../packages/config/eslint/**/*"
+				"../../packages/config/eslint/*"
 			],
 			"dependsOn": [
 				"^lint:fix"

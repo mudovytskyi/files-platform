@@ -6,8 +6,8 @@
 	"scripts": {
 		"build": "tsc",
 		"dev": "tsc -w",
-		"lint": "eslint . --ext .ts,.tsx",
-		"format": "prettier --write \"**/*.{ts,tsx,md,json}\""
+		"lint": "eslint .",
+		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
 		"zod": "^3.25.64"

@@ -1,8 +1,13 @@
 import { prismaClient } from '../../prisma';
 import { BUCKET_NAME, minioClient } from '../../minio';
+import { DeleteFilePlatform } from '@file-platform/shared-lib';
 
 // @ts-ignore
-export const deleteFileHandler = async ({ input }) => {
+export const deleteFileHandler = async ({
+  input,
+}: {
+  input: DeleteFilePlatform;
+}): Promise<{ success: boolean }> => {
   const { id } = input;
   const file = await prismaClient.file.findUnique({ where: { id } });
   if (!file) throw new Error('File not found');

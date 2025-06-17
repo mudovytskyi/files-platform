@@ -1,11 +1,5 @@
-const baseConfig = require('./packages/config/eslint');
-const eslintConfigPrettier = require('eslint-config-prettier');
+const baseConfig = require('@file-platform/eslint-config');
 
-module.exports = [
-  {
-    files: ['**/*.{js,ts,tsx}'],
-    ignores: ['**/node_modules/**', '**/dist/**', '**/build/**'],
+module.exports = {
     ...baseConfig,
-  },
-  eslintConfigPrettier,
-];
+};

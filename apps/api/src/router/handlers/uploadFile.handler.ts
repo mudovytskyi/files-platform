@@ -1,10 +1,14 @@
 import { BUCKET_NAME, FILE_SIGNED_URL_EXPIRED_IN, minioClient } from '../../minio';
-import { FileSchema } from '@file-platform/shared-lib';
+import { FilePlatform, FileSchema, UploadFilePlatform } from '@file-platform/shared-lib';
 import { prismaClient } from '../../prisma';
 import { KafkaService } from '../../kafka';
 
 // @ts-ignore
-export const uploadFileHandler = async ({ input }) => {
+export const uploadFileHandler = async ({
+  input,
+}: {
+  input: UploadFilePlatform;
+}): Promise<FilePlatform> => {
   const { name, file } = input;
   if (!file) {
     throw new Error("File wasn't found");

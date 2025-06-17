@@ -1,34 +1,26 @@
 const js = require('@eslint/js');
 const tseslint = require('@typescript-eslint/eslint-plugin');
 const tsparser = require('@typescript-eslint/parser');
+const eslintConfigPrettier = require('eslint-config-prettier');
 const prettier = require('eslint-plugin-prettier');
 const reactHooks = require('eslint-plugin-react-hooks');
 const reactRefresh = require('eslint-plugin-react-refresh');
 const globals = require('globals');
 
 module.exports = [
-  {
-    ignores: [
-      '**/node_modules/**',
-      '**/dist/**',
-      '**/build/**',
-      '.turbo/**',
-      '.next/**',
-      'coverage/**',
-    ],
-  },
+  js.configs.recommended,
   {
     files: ['**/*.{js,ts,tsx,jsx,mjs,cjs}'],
+    ignores: ['**/dist/**', '**/build/**', '**/node_modules/**', '.turbo/**', '.next/**'],
     languageOptions: {
+      ecmaVersion: 'latest',
+      sourceType: 'module',
       parser: tsparser,
       parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
         ecmaFeatures: {
           jsx: true,
         },
-        project: ['./tsconfig.json', './packages/*/tsconfig.json'],
-        tsconfigRootDir: '.',
+        project: ['./tsconfig.json'],
       },
       globals: {
         ...globals.node,
@@ -42,8 +34,7 @@ module.exports = [
       'react-refresh': reactRefresh,
     },
     rules: {
-      ...js.configs.recommended.rules,
-      ...tseslint.configs.recommended.rules,
+      ...tseslint.configs['recommended'].rules,
       'prettier/prettier': 'error',
       '@typescript-eslint/no-explicit-any': 'warn',
       '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_' }],
@@ -54,4 +45,13 @@ module.exports = [
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
   },
+  {
+    files: ['**/*.{jsx,tsx}'],
+    rules: {
+      'react-hooks/rules-of-hooks': 'error',
+      'react-hooks/exhaustive-deps': 'warn',
+      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+    },
+  },
+  eslintConfigPrettier,
 ];

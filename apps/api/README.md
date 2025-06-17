@@ -1,6 +1,7 @@
 # File Platform API
 
-Проєкт File Platform API - це серверна частина платформи для управління файлами, що використовує tRPC, PostgreSQL, MinIO та Kafka.
+Проєкт File Platform API - це серверна частина платформи для управління файлами, що використовує tRPC, PostgreSQL, MinIO
+та Kafka.
 
 ## Передумови
 
@@ -51,3 +52,18 @@
 ## Запуск
 
     Запустіть команду pnpm dev:api
+
+## API Документація
+
+### Postman
+
+Колекції та оточення для Postman знаходяться в папці `docs/postman/`:
+
+- `collections/` - колекції API запитів
+- `environments/` - конфігурації оточень (local, dev, prod)
+
+Як використовувати:
+
+1. Імпортуйте колекцію з `docs/postman/collections/file-platform.postman_collection.json`
+2. Імпортуйте потрібне оточення з `docs/postman/environments/`
+3. Виберіть імпортоване оточення в Postman
