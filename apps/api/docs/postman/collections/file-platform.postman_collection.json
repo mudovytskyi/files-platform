@@ -13,11 +13,11 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3000/trpc/getFiles",
+					"raw": "localhost:3001/trpc/getFiles",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"trpc",
 						"getFiles"
@@ -62,11 +62,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/trpc/uploadFile",
+					"raw": "localhost:3001/trpc/uploadFile",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"trpc",
 						"uploadFile"
@@ -107,11 +107,11 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3000/trpc/deleteFile",
+					"raw": "localhost:3001/trpc/deleteFile",
 					"host": [
 						"localhost"
 					],
-					"port": "3000",
+					"port": "3001",
 					"path": [
 						"trpc",
 						"deleteFile"

@@ -29,7 +29,7 @@ WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 apiuser
-RUN chown -R apiuser:nodejs /app
+RUN chown -R apiuser:nodejs /pages
 
 COPY --from=builder --chown=apiuser:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=apiuser:nodejs /app/package.json ./package.json

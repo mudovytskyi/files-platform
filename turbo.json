@@ -44,6 +44,16 @@
 				"build"
 			],
 			"outputs": []
+		},
+		"install-deps": {
+			"cache": false,
+			"outputs": [
+				"node_modules/**"
+			],
+			"inputs": [
+				"package.json",
+				"pnpm-lock.yaml"
+			]
 		}
 	}
 }

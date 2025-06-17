@@ -4,7 +4,7 @@ export const FileSchema = z.object({
   id: z.string(),
   name: z.string().min(1),
   url: z.string().url(),
-  createdAt: z.date(),
+  createdAt: z.date().transform((date) => date.toISOString()),
 });
 
 export const UploadFileSchema = z.object({

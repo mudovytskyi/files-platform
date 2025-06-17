@@ -1,20 +1,22 @@
 {
 	"name": "@file-platform/shared-lib",
 	"version": "1.0.0",
-	"main": "./dist/index.js",
+	"main": "./src/index.ts",
+	"module": "./dist/index.mjs",
 	"types": "./dist/index.d.ts",
 	"scripts": {
-		"build": "tsc",
-		"dev": "tsc -w",
+		"build": "tsup src/index.ts --format cjs,esm --dts",
+		"dev": "tsup src/index.ts --format cjs,esm --dts --watch",
 		"lint": "eslint .",
 		"lint:fix": "eslint . --fix"
 	},
 	"dependencies": {
-		"zod": "^3.25.64"
+		"zod": "^3.25.67"
 	},
 	"devDependencies": {
+		"@file-platform/eslint-config": "workspace:*",
 		"typescript": "^5.8.3",
-		"@file-platform/eslint-config": "workspace:*"
+		"tsup": "^8.0.0"
 	},
 	"packageManager": "pnpm@10.12.1",
 	"engines": {
