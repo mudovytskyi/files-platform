@@ -61,9 +61,9 @@
 
     Запустіть команду pnpm dev:api
 
-## API Документація
+## **API Документація**
 
-### Postman
+### **Postman**
 
 Колекції та оточення для Postman знаходяться в папці `docs/postman/`:
 
@@ -75,3 +75,19 @@
 1. Імпортуйте колекцію з `docs/postman/collections/file-platform.postman_collection.json`
 2. Імпортуйте потрібне оточення з `docs/postman/environments/`
 3. Виберіть імпортоване оточення в Postman
+
+
+## **CI/CD**
+
+# Збірка в CI
+   `docker build -f apps/api/Dockerfile -t your-registry/file-platform-api:latest .`
+   `docker push your-registry/file-platform-api:latest`
+
+
+## **Локальне тестування продакшн збірки:**
+
+# Збудувати образ
+docker build -f apps/api/Dockerfile -t api-local .
+
+# Запустити з локальними сервісами
+docker run --network file-platform-network -p 3001:3001 api-local
