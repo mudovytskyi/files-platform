@@ -39,15 +39,23 @@
 
    KAFKA_BROKER=localhost:9092
 
-4. Налаштуйте базу даних:
+4. Запустіть збірку в Docker
+   docker-compose up --build
 
-   # Застосуйте міграції Prisma (коли запустите проєкт)
+5. Налаштуйте базу даних:
+
+   # Застосуйте міграції Prisma (коли запустите збірку)
 
    npx prisma migrate dev
 
    # Згенеруйте (для нових змін) Prisma Client
 
    npx prisma generate
+
+   # Скидання міграцій в Prisma Client
+   
+   npx prisma migrate reset
+
 
 ## Запуск
 
