@@ -63,6 +63,7 @@ pnpm release
   - Запустіть pnpm install в корені проєкту
   - Налаштувати i підняти Docker & DB в apps/api (див. READ.me там)
   - Запустити команду на збірку
+- `pnpm dev`: Запустити apps (server & client)
 - `pnpm lint`: Запустити лінтінг у всіх проектах
 - `pnpm format`: Форматувати код у всіх проектах
 - `pnpm clean`: Очистити всі тимчасові файли та кеш
