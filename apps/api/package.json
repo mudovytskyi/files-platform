@@ -8,7 +8,7 @@
 	"main": "./src/index.ts",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"build": "npx prisma migrate dev && tsc -p tsconfig.json",
+		"build": "pnpm prisma generate && npx prisma migrate dev && tsc -p tsconfig.json",
 		"dev": "bash ./dev.sh",
 		"dev:win": "nodemon --watch \"src/**/*.ts\" --ignore \"src/**/*.spec.ts\" --exec \"ts-node -r tsconfig-paths/register src/server/index.ts\" | pino-pretty -c -l",
 		"lint": "eslint .",

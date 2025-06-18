@@ -11,6 +11,9 @@ COPY package.json ./
 COPY apps/api/package.json ./apps/api/
 COPY packages/shared-lib/package.json ./packages/shared-lib/
 
+# Копіюємо .env файли
+COPY apps/api/.env.example ./apps/api/.env
+
 # Встановлюємо залежності
 RUN pnpm install --frozen-lockfile
 
@@ -29,7 +32,7 @@ WORKDIR /app
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 apiuser
-RUN chown -R apiuser:nodejs /pages
+RUN chown -R apiuser:nodejs /app
 
 COPY --from=builder --chown=apiuser:nodejs /app/node_modules ./node_modules
 COPY --from=builder --chown=apiuser:nodejs /app/package.json ./package.json
