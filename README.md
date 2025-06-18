@@ -38,6 +38,11 @@ pnpm install
 # Запустити локальні сервіси (Postgres, MinIO, Kafka)
 docker-compose up -d
 
+# Додати .env файли в apps/api i apps/web підпроєкти (можна скопіювати з .env.example)
+
+# Запустити збірку
+pnpm build
+
 # Запустити розробницький режим
 pnpm dev
 ```
