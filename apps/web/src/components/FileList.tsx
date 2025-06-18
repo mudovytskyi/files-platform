@@ -15,7 +15,7 @@ export function FileList() {
 
   return (
     <div className="space-y-4">
-      {files?.map((file: FilePlatform) => <FileItem key={file.id} file={file} />)}
+      {files?.reverse().map((file: FilePlatform) => <FileItem key={file.id} file={file} />)}
     </div>
   );
 }

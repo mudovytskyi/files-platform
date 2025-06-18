@@ -6,6 +6,7 @@ import {
   AlertDialogDescription,
   AlertDialogFooter,
   AlertDialogHeader,
+  AlertDialogPortal,
   AlertDialogTitle,
 } from '@file-platform/ui';
 
@@ -23,21 +24,26 @@ export const DeleteConfirmDialog = ({
   onConfirm,
   fileName,
   isPending,
-}: DeleteConfirmDialogProps) => (
-  <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
-    <AlertDialogContent>
-      <AlertDialogHeader>
-        <AlertDialogTitle>Підтвердження видалення</AlertDialogTitle>
-        <AlertDialogDescription>
-          Ви впевнені, що хочете видалити файл "{fileName}"?
-        </AlertDialogDescription>
-      </AlertDialogHeader>
-      <AlertDialogFooter>
-        <AlertDialogCancel>Скасувати</AlertDialogCancel>
-        <AlertDialogAction onClick={onConfirm} disabled={isPending}>
-          {isPending ? 'Видалення...' : 'Видалити'}
-        </AlertDialogAction>
-      </AlertDialogFooter>
-    </AlertDialogContent>
-  </AlertDialog>
-);
+}: DeleteConfirmDialogProps) => {
+  return (
+    <AlertDialog open={isOpen} onOpenChange={onOpenChange}>
+      <AlertDialogPortal>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Підтвердження видалення</AlertDialogTitle>
+            <AlertDialogDescription>
+              Ви впевнені, що хочете видалити файл <span className="font-bold text-black">
+"{fileName}"</span>?
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Скасувати</AlertDialogCancel>
+            <AlertDialogAction onClick={onConfirm} disabled={isPending}>
+              {isPending ? 'Видалення...' : 'Видалити'}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialogPortal>
+    </AlertDialog>
+  );
+};

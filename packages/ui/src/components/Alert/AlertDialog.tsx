@@ -103,6 +103,7 @@ AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
 
 export {
   AlertDialog,
+  AlertDialogPortal,
   AlertDialogTrigger,
   AlertDialogContent,
   AlertDialogHeader,

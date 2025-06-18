@@ -2,6 +2,7 @@ import { fastifyTRPCPlugin } from '@trpc/server/adapters/fastify';
 import Fastify from 'fastify';
 import { appRouter } from './router';
 import { createContext } from './router/context';
+import cors from '@fastify/cors';
 
 export interface ServerOptions {
   dev?: boolean;
@@ -34,6 +35,13 @@ export function createServer(opts: ServerOptions) {
   void server.setErrorHandler((error, request, reply) => {
     request.log.error(error);
     reply.status(500).send({ error: 'Внутрішня помилка сервера' });
+  });
+
+  void server.register(cors, {
+    origin: ['http://localhost:3000', 'http://localhost:3001'],
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization'],
+    credentials: true,
   });
 
   void server.register(fastifyTRPCPlugin, {
